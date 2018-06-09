@@ -15,8 +15,10 @@ var commentRoutes = require("./routes/comments");
 var skigroundRoutes = require("./routes/skigrounds");
 var indexRoutes = require("./routes/index");
 
-//mongoose.connect("mongodb://localhost/ski_camp");
-mongoose.connect("mongodb://Joey:qpwo1029@ds253840.mlab.com:53840/ski_camp");
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb://Joey:qpwo1029@ds253840.mlab.com:53840/ski_camp");
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
